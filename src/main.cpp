@@ -11,25 +11,30 @@
  */
 
 const int irPin = 2;
+const int buzzerPin = 8;
+
 int sensorState = 0;
 
 void setup() {
 
     Serial.begin(9600);
     pinMode(irPin, INPUT);
-    Serial.println("IR Obstacle Detection System Initialized");
-
+    pinMode(buzzerPin, OUTPUT);
+    Serial.println("IR + Buzzer System Initialized");
 }
 
 void loop() {
 
     sensorState = digitalRead(irPin);
+
     if (sensorState == LOW) {
-        Serial.println("Obstacle Detected");
+        Serial.println("Obstacle Detected!");
+        digitalWrite(buzzerPin, HIGH);
+
     } else {
         Serial.println("No Obstacle");
+        digitalWrite(buzzerPin, LOW);
     }
 
-    delay(300);
-
+    delay(200);
 }
