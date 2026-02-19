@@ -15,14 +15,10 @@ int sensorState = 0;
 
 void setup() {
 
-    // TODO 3:
-    // Initialize Serial communication (9600 baud rate)
+    Serial.begin(9600);
+    pinMode(irPin, INPUT);
+    Serial.println("IR Obstacle Detection System Initialized");
 
-    // TODO 4:
-    // Configure IR pin as INPUT
-
-    // TODO 5:
-    // Print system initialization message
 }
 
 void loop() {
